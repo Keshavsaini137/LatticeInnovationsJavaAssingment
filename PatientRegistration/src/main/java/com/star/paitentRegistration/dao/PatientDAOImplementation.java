@@ -1,5 +1,7 @@
 package com.star.paitentRegistration.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -31,7 +33,7 @@ public class PatientDAOImplementation implements PatientDAO{
 		Session currentSesion = entityManager.unwrap(Session.class);
 		
 		//create a query 
-		Query<Patient> theQuery = currentSesion.createQuery("From Patient", Patient.class);
+		Query<Patient> theQuery = currentSesion.createQuery("From Patient Order by date DESC", Patient.class);
 		
 		//execute query and get the result
 		List<Patient> patient = theQuery.getResultList();
@@ -48,6 +50,7 @@ public class PatientDAOImplementation implements PatientDAO{
 		
 		//Save the given(thePatient) Patient which is given in the RequestBody
 		//If id=0 save/insert else Update..
+		System.out.println(thePatient.getDate());
 		currentSession.saveOrUpdate(thePatient);
 		
 	}

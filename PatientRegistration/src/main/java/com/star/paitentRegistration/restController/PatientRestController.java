@@ -40,6 +40,8 @@ public class PatientRestController {
 		//So it will save instead of update
 		thePatient.setId(0);
 		
+		thePatient.setDate();
+		
 		patientService.save(thePatient);
 		
 		return thePatient;

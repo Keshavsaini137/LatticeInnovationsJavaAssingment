@@ -1,5 +1,6 @@
 package com.star.paitentRegistration.entity;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,7 +12,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -45,7 +45,7 @@ public class Patient {
 	private String phoneNumber;
 	
 	@Column(name="date")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	
 	@PasswordRules
@@ -72,8 +72,8 @@ public class Patient {
 		return date;
 	}
 	
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate() {
+		this.date = new Date();
 	}
 
 	public long getId() {
