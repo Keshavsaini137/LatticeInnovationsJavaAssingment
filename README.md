@@ -1,4 +1,4 @@
-# LatticeInnovationsJavaAssingment
+# Patient API
 Patient Registration API
 
 ## List of all the major libraries/frameworks used
